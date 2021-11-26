@@ -2,4 +2,5 @@ FROM node:alpine
 COPY . /app
 WORKDIR /app
 RUN npm install
-CMD node index.js
+ENTRYPOINT [ "node", "index.js" ]
+CMD [ "1", "50" ]

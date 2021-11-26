@@ -2,12 +2,14 @@
 const cheerio = require('cheerio');
 const fs = require('fs');
 const URL = 'https://www.kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do';
+const START = +process.argv[2];
+const END = +process.argv[3];
 
 async function main() {
     let words = [],
         promises = [];
 
-    for (let i = 8001; i <= 8470; i++) {
+    for (let i = START; i <= END; i++) {
         promises.push(getPage(words, i));
     }
 
